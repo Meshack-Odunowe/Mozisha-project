@@ -4,8 +4,9 @@ import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 import Heroimg from "../assets/group-photo.webp";
 const Hero = () => {
+  
   return (
-    <div className={`"flex flex-col md:flex-row md:grid md:grid-cols-2 md:gap-8 md:mt-24 `}>
+    <div className={`"flex flex-col md:flex-row md:grid md:grid-cols-2 md:gap-16 md:mt-24 md:items-center`}>
       <div className=" mt-2 ">
         <motion.h1
           initial={{ opacity: 0, x: -100 }} // Initial position to the left
@@ -44,21 +45,21 @@ const Hero = () => {
             <p className="text-3xl font-bold text-violet-800  text-center">
               <CountUp end={20}  duration={5}/> +
             </p>
-            <p > Talented Pros</p>
+            <p className="text-center"> Talented Pros</p>
           </div>
           <div>
             
             <p className="text-3xl text-center font-bold text-violet-800">
               <CountUp end={10} duration={5}/> +
             </p>
-            <p >Services offered</p>
+            <p className="text-center">Services offered</p>
           </div>
           <div>
           
             <p className="text-3xl text-center font-bold text-violet-800">
               <CountUp end={50} duration={5}/> +
             </p>
-            <p >Satisfied Clients</p>
+            <p className="text-center">Satisfied Clients</p>
           </div>
         </div>
       </div>

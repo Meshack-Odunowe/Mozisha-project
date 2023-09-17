@@ -15,16 +15,18 @@ const App = () => {
 
   return (
     <div
-      className={`  ${isDarkMode ? "dark:bg-black text-gray-200 " : ""}`}>
-      <button
+      className={`relative  ${isDarkMode ? "dark:bg-black text-gray-200 " : ""}`}>
+       <button
         onClick={toggleDarkMode}
-        className={` absolute top-4 right-24 z-10 rounded-md  ${
-          isDarkMode ? "  rounded-full p-4  " : "p-4"
+        className={` absolute top-4 right-[20%] md:right-0  md:fixed rounded-md   md:top-9 md:z-20 ${
+          isDarkMode ? "  rounded-full p-4 text-white " : "p-4"
         }`}>
         <FaSun />
-      </button>
-      <div className="container mx-auto mb-8 px-8">
-        <Navbar />
+        </button>
+      <div className={`container mx-auto mb-8 px-8 ${isDarkMode ? "dark:bg-black text-gray-200 " : ""}`}>
+     
+       
+        <Navbar /> 
         <Hero />
         <Mission/>
         {/* <About />

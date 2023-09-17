@@ -56,21 +56,15 @@ const Navbar = () => {
       </div>
 
       {/* ==============desktop version================ */}
-      <div className={`hidden md:block fixed bg-white top-0 left-0  z-10 w-full  shadow-2xl shadow-gray-100 ${isDarkMode ? "bg-white":"bg-black text-white"}`}>
+      <div className={`hidden md:block     ${isDarkMode ? "bg-white":" "}`}>
       
         <div className="flex  justify-between items-center px-8 py-4">
           <div>
-            <img src={Img} alt="logo" className="w-20" />
+            <img src={Img} alt="logo" className="w-20 rounded-full" />
           </div>
           <div>
             <ul className="flex gap-8 items-center">
-            <button
-        onClick={toggleDarkMode}
-        className={`  rounded-md  ${
-          isDarkMode ? "  rounded-full p-4  " : "p-4"
-        }`}>
-        <FaSun />
-      </button>
+           
               <li className="px-4 py-2">
                 <a href="">About us</a>
               </li>
