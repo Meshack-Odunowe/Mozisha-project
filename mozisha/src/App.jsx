@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import { useState } from "react";
+
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import Mission from "./components/Mission";
 import About from "./components/About";
 import Footer from "./components/Footer";
-import { FaBars, FaTimes, FaSun } from "react-icons/fa";
+import {  FaSun } from "react-icons/fa";
+import Services from "./components/Services";
 
 const App = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -14,23 +15,23 @@ const App = () => {
   // Toggle the menu
 
   return (
-    <div
+    <div name='app'
       className={`relative  ${isDarkMode ? "dark:bg-black text-gray-200 " : ""}`}>
+        <Navbar /> 
+      
        <button
         onClick={toggleDarkMode}
-        className={` absolute top-4 right-[20%] md:right-0  md:fixed rounded-md   md:top-9 md:z-20 ${
-          isDarkMode ? "  rounded-full p-4 text-white " : "p-4"
+        className={` fixed top-4 right-[10%] md:right-0 z-50  md:fixed rounded-md   md:top-9 md:z-20 ${
+          isDarkMode ? "  rounded-full p-4  " : "p-4"
         }`}>
         <FaSun />
         </button>
       <div className={`container mx-auto mb-8 px-8 ${isDarkMode ? "dark:bg-black text-gray-200 " : ""}`}>
      
-       
-        <Navbar /> 
         <Hero />
-        <Mission/>
-        {/* <About />
-      <Footer /> */}
+        <About />
+        <Services/>
+      <Footer /> 
       </div>
     </div>
   );

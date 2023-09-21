@@ -1,18 +1,36 @@
-import React from "react";
-import CountUp from "react-countup";
+/* eslint-disable react/no-unescaped-entities */
+import  { useEffect, useState } from 'react';import CountUp from "react-countup";
 import { motion } from "framer-motion";
+import axios from 'axios'
 import { TypeAnimation } from "react-type-animation";
 import Heroimg from "../assets/group-photo.webp";
 const Hero = () => {
-  
+  const [quote, setQuote] = useState('');
+
+  useEffect(() => {
+    // Fetch a random quote from the API using Axios
+    axios.get('https://type.fit/api/quotes')
+      .then((response) => {
+        // Get a random quote from the response data
+        const randomIndex = Math.floor(Math.random() * response.data.length);
+        const randomQuote = response.data[randomIndex].text;
+
+        // Set the random quote in the state
+        setQuote(randomQuote);
+      })
+      .catch((error) => {
+        console.error('Error fetching quote:', error);
+      });
+  }, []); // The empty dependency array ensures this effect runs only once on component mount
   return (
-    <div className={`"flex flex-col md:flex-row md:grid md:grid-cols-2 md:gap-16 md:mt-24 md:items-center`}>
+    <div name='hero' className={`"flex flex-col md:flex-row md:grid md:grid-cols-2 md:gap-16 md:mt-1 md:items-center`}>
       <div className=" mt-2 ">
+      <p className=' italic text-[9px] text-violet-400  mt-10 text-center md:text-left'>{quote}</p>
         <motion.h1
           initial={{ opacity: 0, x: -100 }} // Initial position to the left
           animate={{ x: 0, opacity: 1 }} // Animate to the center
           transition={{ duration: 1 }}
-          className=" text-5xl md:text-6xl  md:leading-[4.5rem] md:font-bold  text-violet-500 leading-[4rem] text-center  md:text-start font-extrabold mt-12 ">
+          className=" text-5xl md:text-6xl  md:leading-[4.5rem] md:font-bold  text-violet-500 leading-[4rem] text-center  md:text-start font-extrabold mt-2  font-Lora">
           Enabling African Talent to Achieve 
           <TypeAnimation
             sequence={[` Global Success`, 2000,]}
@@ -33,7 +51,7 @@ const Hero = () => {
           />
         </motion.p>
         <motion.p
-          className=" text-center      md:text-start mt-6 md:text-xl md:leading-8"
+          className=" text-center      md:text-start  md:text-xl md:leading-8"
           initial={{ opacity: 0, x: -100, y: 50 }} // Initial position to the left
           animate={{ x: 0, y: 0, opacity: 1 }} // Animate to the center
           transition={{ duration: 1 }}>
@@ -41,7 +59,6 @@ const Hero = () => {
         </motion.p>
         <div className="flex justify-between mt-6">
         <div>
-            {" "}
             <p className="text-3xl font-bold text-violet-800  text-center">
               <CountUp end={20}  duration={5}/> +
             </p>
